@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="loginPage">
+        <h2>Inicio de Sesión</h2>
+        <form id="loginForm" onsubmit="authenticate(event)">
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+    </div>
+
+    <div id="mainPage" style="display: none;">
+        <header>
+            <h1>LIBROTECA</h1>
+            <button id="logoutButton" onclick="logout()">Salir</button>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('administracion')">Administración</a></li>
+                <li><a href="#" onclick="showSection('registro-usuarios')">Registro de usuarios</a></li>
+                <li><a href="#" onclick="showSection('libros-y-catalogo')">Libros y catálogo</a></li>
+                <li><a href="#" onclick="showSection('prestamos-y-reservaciones')">Préstamos y reservaciones</a></li>
+                <li><a href="#" onclick="showSection('reportes-y-estadisticas')">Reportes y estadísticas</a></li>
+                <li><a href="#" onclick="showSection('configuraciones-avanzadas')">Configuraciones avanzadas</a></li>
+            </ul>
+        </nav>
+        <main>
+            <section id="administracion" style="display: none;">
+                <h2>Administración</h2>
+                <!-- Contenido de la sección de Administración -->
+            </section>
+            <section id="registro-usuarios" style="display: none;">
+                <h2>Registro de usuarios</h2>
+                <!-- Contenido de la sección de Registro de usuarios -->
+            </section>
+            <section id="libros-y-catalogo" style="display: none;">
+                <h2>Libros y catálogo</h2>
+                <!-- Contenido de la sección de Libros y catálogo -->
+            </section>
+            <section id="prestamos-y-reservaciones" style="display: none;">
+                <h2>Préstamos y reservaciones</h2>
+                <!-- Contenido de la sección de Préstamos y reservaciones -->
+            </section>
+            <section id="reportes-y-estadisticas" style="display: none;">
+                <h2>Reportes y estadísticas</h2>
+                <!-- Contenido de la sección de Reportes y estadísticas -->
+            </section>
+            <section id="configuraciones-avanzadas" style="display: none;">
+                <h2>Configuraciones avanzadas</h2>
+                <!-- Contenido de la sección de Configuraciones avanzadas -->
+            </section>
+        </main>
+        <footer>
+            <p>Hector, Emiliano, Danna</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        var adminUsername = "admin"; // Nombre de usuario del administrador
+        var adminPassword = "admin10"; // Contraseña del administrador
+
+        function authenticate(event) {
+            event.preventDefault(); 
+
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            if (username === adminUsername && password === adminPassword) {
+                console.log("Inicio de sesión exitoso para el administrador");
+                document.getElementById('loginPage').style.display = 'none';
+                document.getElementById('mainPage').style.display = 'block';
+
+                if (username === adminUsername) {
+                    document.getElementById('administracion').style.display = 'block';
+                }
+            } else {
+                alert('Usuario o contraseña incorrectos');
+            }
+        }
+
+        function showSection(sectionId) {
+
+            document.querySelectorAll('main section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        function logout() {
+            document.getElementById('loginPage').style.display = 'block';
+            document.getElementById('mainPage').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
+
+

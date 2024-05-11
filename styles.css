@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;    
+}
+
+header {
+    background-color: #009688; 
+    padding: 1rem;
+    text-align: center;
+}
+
+header h1 {
+    color: white;
+    margin: 0;
+}
+
+nav {
+    background-color: #4CAF50; 
+    padding: 1rem;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff; 
+}
+
+main {
+    padding: 2rem;
+}
+
+main section {
+    margin-bottom: 2rem;
+    text-align: center; 
+}
+
+main section h2 {
+    margin-top: 0;
+    color: #009688; 
+}
+
+#loginPage {
+    text-align: center; 
+}
+
+#loginForm {
+    display: inline-block; 
+    background-color: #b3e0ff; 
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+#loginForm label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+#loginForm input {
+    padding: 0.2rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+#loginForm button {
+    padding: 0.5rem 1rem;
+    background-color: #009688;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#loginForm button:hover {
+    background-color: #00796b; 
+}
+
+footer {
+    background-color: #4CAF50; 
+    padding: 1rem;
+    text-align: center;
+}
+
+footer p {
+    color: white;
+    margin: 0;
+}
+
+#logoutButton {
+    padding: 0.5rem 1rem;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#logoutButton:hover {
+    background-color: darkgreen; 
+}
+
+

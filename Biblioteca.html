@@ -24,52 +24,54 @@
             <h1>LIBROTECA</h1>
             <button id="logoutButton" onclick="logout()">Salir</button>
         </header>
-        <nav>
-            <ul>
-                <li><a href="#" onclick="showSection('administracion')">Administración</a></li>
-                <li><a href="#" onclick="showSection('registro-usuarios')">Registro de usuarios</a></li>
-                <li><a href="#" onclick="showSection('libros-y-catalogo')">Libros y catálogo</a></li>
-                <li><a href="#" onclick="showSection('prestamos-y-reservaciones')">Préstamos y reservaciones</a></li>
-                <li><a href="#" onclick="showSection('reportes-y-estadisticas')">Reportes y estadísticas</a></li>
-                <li><a href="#" onclick="showSection('configuraciones-avanzadas')">Configuraciones avanzadas</a></li>
-            </ul>
-        </nav>
-        <main>
-            <section id="administracion" style="display: none;">
-                <h2>Administración</h2>
-                <!-- Contenido de la sección de Administración -->
-            </section>
-            <section id="registro-usuarios" style="display: none;">
-                <h2>Registro de usuarios</h2>
-                <form id="userRegistrationForm" onsubmit="registerUser(event)">
-                    <label for="newUsername">Nombre de usuario:</label>
-                    <input type="text" id="newUsername" name="newUsername" required><br><br>
-                    <label for="newPassword">Contraseña:</label>
-                    <input type="password" id="newPassword" name="newPassword" required><br><br>
-                    <label for="email">Correo electrónico:</label>
-                    <input type="email" id="email" name="email" required><br><br>
-                    <label for="fullName">Nombre completo:</label>
-                    <input type="text" id="fullName" name="fullName" required><br><br>
-                    <button type="submit">Guardar</button>
-                </form>
-            </section>
-            <section id="libros-y-catalogo" style="display: none;">
-                <h2>Libros y catálogo</h2>
-                <!-- Contenido de la sección de Libros y catálogo -->
-            </section>
-            <section id="prestamos-y-reservaciones" style="display: none;">
-                <h2>Préstamos y reservaciones</h2>
-                <!-- Contenido de la sección de Préstamos y reservaciones -->
-            </section>
-            <section id="reportes-y-estadisticas" style="display: none;">
-                <h2>Reportes y estadísticas</h2>
-                <!-- Contenido de la sección de Reportes y estadísticas -->
-            </section>
-            <section id="configuraciones-avanzadas" style="display: none;">
-                <h2>Configuraciones avanzadas</h2>
-                <!-- Contenido de la sección de Configuraciones avanzadas -->
-            </section>
-        </main>
+        <div style="display: flex; flex: 1;">
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showSection('administracion')">Administración</a></li>
+                    <li><a href="#" onclick="showSection('registro-usuarios')">Registro de usuarios</a></li>
+                    <li><a href="#" onclick="showSection('libros-y-catalogo')">Libros y catálogo</a></li>
+                    <li><a href="#" onclick="showSection('prestamos-y-reservaciones')">Préstamos y reservaciones</a></li>
+                    <li><a href="#" onclick="showSection('reportes-y-estadisticas')">Reportes y estadísticas</a></li>
+                    <li><a href="#" onclick="showSection('configuraciones-avanzadas')">Configuraciones avanzadas</a></li>
+                </ul>
+            </nav>
+            <main>
+                <section id="administracion" style="display: none;">
+                    <h2>Administración</h2>
+                    <!-- Contenido de la sección de Administración -->
+                </section>
+                <section id="registro-usuarios" style="display: none;">
+                    <h2>Registro de usuarios</h2>
+                    <form id="userRegistrationForm" onsubmit="registerUser(event)">
+                        <label for="newUsername">Nombre de usuario:</label>
+                        <input type="text" id="newUsername" name="newUsername" required><br><br>
+                        <label for="newPassword">Contraseña:</label>
+                        <input type="password" id="newPassword" name="newPassword" required><br><br>
+                        <label for="email">Correo electrónico:</label>
+                        <input type="email" id="email" name="email" required><br><br>
+                        <label for="fullName">Nombre completo:</label>
+                        <input type="text" id="fullName" name="fullName" required><br><br>
+                        <button type="submit">Guardar</button>
+                    </form>
+                </section>
+                <section id="libros-y-catalogo" style="display: none;">
+                    <h2>Libros y catálogo</h2>
+                    <!-- Contenido de la sección de Libros y catálogo -->
+                </section>
+                <section id="prestamos-y-reservaciones" style="display: none;">
+                    <h2>Préstamos y reservaciones</h2>
+                    <!-- Contenido de la sección de Préstamos y reservaciones -->
+                </section>
+                <section id="reportes-y-estadisticas" style="display: none;">
+                    <h2>Reportes y estadísticas</h2>
+                    <!-- Contenido de la sección de Reportes y estadísticas -->
+                </section>
+                <section id="configuraciones-avanzadas" style="display: none;">
+                    <h2>Configuraciones avanzadas</h2>
+                    <!-- Contenido de la sección de Configuraciones avanzadas -->
+                </section>
+            </main>
+        </div>
         <footer>
             <p>Hector, Emiliano, Danna</p>
         </footer>
@@ -90,10 +92,6 @@
                 console.log("Inicio de sesión exitoso para el administrador");
                 document.getElementById('loginPage').style.display = 'none';
                 document.getElementById('mainPage').style.display = 'block';
-
-                if (username === adminUsername) {
-                    document.getElementById('administracion').style.display = 'block';
-                }
             } else {
                 alert('Usuario o contraseña incorrectos');
             }
@@ -133,5 +131,4 @@
     </script>
 </body>
 </html>
-
 

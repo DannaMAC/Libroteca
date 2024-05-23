@@ -1,32 +1,31 @@
-const oracledb = require('oracledb');
+/*const oracledb = require('oracledb');
 async function runApp()
 {
   let connection;
   try {
     connection = await oracledb.getConnection({ user: "HR", password: "hr", connectionString: "localhost/xepdb1" });
-    console.log("Successfully connected to Oracle Database");
-
-    // Create a table
-    await connection.execute(`begin execute immediate 'drop table todoitem'; exception when others then if sqlcode <> -942 then raise; end if; end;`);
-    await connection.execute(`create table todoitem ( id number generated always as identity, description varchar2(4000), creation_ts timestamp with time zone default current_timestamp, done number(1,0), primary key (id))`);
-
-    // Insert some data
-    const sql = `insert into todoitem (description, done) values(:1, :2)`;
-    const rows = [ ["Task 1", 0 ], ["Task 2", 0 ], ["Task 3", 1 ], ["Task 4", 0 ], ["Task 5", 1 ] ];
+    console.log("Conexion exitosa a la Base de Datos Oracle");
+    
+    // Insertar datos
+    const sql = `insert into cliente (clienteid, nombrecliente, direccion, ciudad, estado, cp) values(:1, :2, :3, :4, :5, :6)`;
+    const rows = [ [1, 'Juan', 'Calle Benavides', 'Chihuahua', 'Chihuahua', '31429'], [2, 'Roberto', 'Calle Skibidi', 'Chihuahua', 'Chihuahua', '31426'], [3, 'Raul', 'Calle Ola', 'Chihuahua', 'Chihuahua', '31510']];
     let result = await connection.executeMany(sql, rows);
-    console.log(result.rowsAffected, "Rows Inserted");
+    console.log(result.rowsAffected, "Filas insertadas");
+    connection.commit();
+    console.log("Insercion exitosa a la base de datos");
+    
+    // Actualizar datos
+    const sql2 = `update cliente set cp = '31110' WHERE estado = 'Chihuahua'`;
+    let result2 = await connection.execute(sql2);
+    console.log(result2.rowsAffected, "Filas actualizadas");
     connection.commit();
 
-    // Now query the rows back
-    result = await connection.execute( `select description, done from todoitem`, [], { resultSet: true, outFormat: oracledb.OUT_FORMAT_OBJECT });
-    const rs = result.resultSet; let row;
-    while ((row = await rs.getRow())) {
-      if (row.DONE)
-        console.log(row.DESCRIPTION, "is done");
-      else
-        console.log(row.DESCRIPTION, "is NOT done");
-    }
-    await rs.close();
+    // Eliminar datos
+    const sql3 = `delete from cliente where ciudad = 'Chihuahua'`;
+    let result3 = await connection.execute(sql3);
+    console.log(result3.rowsAffected, "Filas eliminadas");
+    connection.commit();
+
   } catch (err) {
     console.error(err);
   } finally {
@@ -41,3 +40,41 @@ async function runApp()
   }
 }
 runApp();
+*/
+function register(){
+  var newUsername = document.getElementById('newUsername').value;
+  var newPassword = document.getElementById('newPassword').value;
+  var email = document.getElementById('email').value;
+  var fullName = document.getElementById('fullName').value;
+
+  const oracledb = require('oracledb');
+  async function runApp()
+  {
+  let connection;
+  try {
+      connection = await oracledb.getConnection({ user: "HR", password: "hr", connectionString: "localhost/xepdb1" });
+      console.log("Conexion exitosa a la Base de Datos Oracle");
+      const sql = `insert into prueba1 (client_id, username, email, first_name, last_name) values(:1, :2, :3, :4, :5)`;
+      const parts = fullName.split(" ");
+      const name = parts[0];
+      const lastName = parts[1];
+      const rows = [[newUsername, newPassword, email, name, lastName]];
+      let result = await connection.executeMany(sql, rows);
+      console.log(result.rowsAffected, "Filas insertadas");
+      connection.commit();
+      console.log("Insercion exitosa a la base de datos");
+      
+  } catch (err) {
+      console.error(err);
+  } finally {
+      if (connection)
+      {
+      try {
+          await connection.close();
+      } catch (err) {
+          console.error(err);
+      }
+      }
+  }
+  }
+}

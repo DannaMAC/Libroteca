@@ -1,13 +1,17 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: black; 
     margin: 0;
     padding: 0;
 }
 
+#loginPage h2 {
+    color: white; 
+}
+
 header {
-    background-color: #009688;
+    background-color: #333;
     padding: 1rem;
     text-align: center;
 }
@@ -22,7 +26,7 @@ header h1 {
 }
 
 nav {
-    background-color: #4CAF50;
+    background-color: #666; 
     padding: 1rem;
     width: 200px;
     flex-shrink: 0;
@@ -39,7 +43,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #fff;
+    color: white; 
     display: block;
 }
 
@@ -55,16 +59,24 @@ main section {
 
 main section h2 {
     margin-top: 0;
-    color: #009688;
+    color: black;
 }
 
 #loginPage {
+    background-image: url('Fondo.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
 
 #loginForm {
     display: inline-block;
-    background-color: #b3e0ff;
+    background-color: #333; 
     padding: 1rem;
     border-radius: 5px;
 }
@@ -72,6 +84,7 @@ main section h2 {
 #loginForm label {
     display: block;
     margin-bottom: 0.5rem;
+    color: white; 
 }
 
 #loginForm input {
@@ -84,7 +97,7 @@ main section h2 {
 
 #loginForm button {
     padding: 0.5rem 1rem;
-    background-color: #009688;
+    background-color: #654321; 
     color: white;
     border: none;
     border-radius: 4px;
@@ -92,11 +105,11 @@ main section h2 {
 }
 
 #loginForm button:hover {
-    background-color: #00796b;
+    background-color: #8B4513; 
 }
 
 footer {
-    background-color: #009688;
+    background-color: #333; 
     padding: 1rem;
     text-align: center;
 }
@@ -108,7 +121,7 @@ footer p {
 
 #logoutButton {
     padding: 0.5rem 1rem;
-    background-color: green;
+    background-color: #666; 
     color: white;
     border: none;
     border-radius: 4px;
@@ -116,6 +129,6 @@ footer p {
 }
 
 #logoutButton:hover {
-    background-color: darkgreen;
+    background-color: #F5F5DC;
 }
 

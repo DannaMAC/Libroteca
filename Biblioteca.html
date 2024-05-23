@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library System</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh; 
+            display: flex;
+            flex-direction: column;
+        }
+        #mainPage {
+            flex-grow: 1; 
+            display: none; 
+        }
+        footer {
+            flex-shrink: 0; 
+        }
+    </style>
 </head>
 <body>
 
@@ -19,7 +35,7 @@
         </form>
     </div>
 
-    <div id="mainPage" style="display: none;">
+    <div id="mainPage">
         <header>
             <h1>LIBROTECA</h1>
             <button id="logoutButton" onclick="logout()">Salir</button>
@@ -43,20 +59,39 @@
                 <section id="registro-usuarios" style="display: none;">
                     <h2>Registro de usuarios</h2>
                     <form id="userRegistrationForm" onsubmit="registerUser(event)">
-                        <label for="newUsername">Nombre de usuario:</label>
-                        <input type="text" id="newUsername" name="newUsername" required><br><br>
-                        <label for="newPassword">Contraseña:</label>
-                        <input type="password" id="newPassword" name="newPassword" required><br><br>
-                        <label for="email">Correo electrónico:</label>
-                        <input type="email" id="email" name="email" required><br><br>
-                        <label for="fullName">Nombre completo:</label>
-                        <input type="text" id="fullName" name="fullName" required><br><br>
-                        <button type="submit" onclick="register()">Guardar</button>
+                        <label for="newFirstName"><b>Nombre:</b></label>
+                        <input type="text" id="newFirstName" name="newFirstName" required><br><br>
+                        <label for="newLastName"><b>Apellido:</b></label>
+                        <input type="text" id="newLastName" name="newLastName" required><br><br>
+                        <label for="newAddress"><b>Dirección:</b></label>
+                        <input type="text" id="newAddress" name="newAddress"><br><br>
+                        <label for="newPhoneNumber"><b>Teléfono:</b></label>
+                        <input type="text" id="newPhoneNumber" name="newPhoneNumber"><br><br>
+                        <label for="newEmail"><b>Correo electrónico:</b></label>
+                        <input type="email" id="newEmail" name="newEmail" required><br><br>
+                        <button type="submit">Guardar</button>
                     </form>
                 </section>
                 <section id="libros-y-catalogo" style="display: none;">
                     <h2>Libros y catálogo</h2>
-                    <!-- Contenido de la sección de Libros y catálogo -->
+                    <form id="bookForm" onsubmit="addBook(event)">
+                        <label for="bookName">Nombre:</label>
+                        <input type="text" id="bookName" name="bookName" required><br><br>
+                        
+                        <label for="bookAuthor">Autor:</label>
+                        <input type="text" id="bookAuthor" name="bookAuthor" required><br><br>
+                        
+                        <label for="bookDescription">Descripción:</label><br>
+                        <textarea id="bookDescription" name="bookDescription" rows="4" cols="50" required></textarea><br><br>
+                        
+                        <label for="bookEdition">Edición:</label>
+                        <input type="text" id="bookEdition" name="bookEdition"><br><br>
+                        
+                        <label for="bookEditor">Editor:</label>
+                        <input type="text" id="bookEditor" name="bookEditor"><br><br>
+                        
+                        <button type="submit">Agregar Libro</button>
+                    </form>
                 </section>
                 <section id="prestamos-y-reservaciones" style="display: none;">
                     <h2>Préstamos y reservaciones</h2>
@@ -106,24 +141,29 @@
         }
 
         function logout() {
-            document.getElementById('loginPage').style.display = 'block';
+            document.getElementById('loginPage').style.display = 'flex'; 
             document.getElementById('mainPage').style.display = 'none';
         }
 
         function registerUser(event) {
             event.preventDefault();
 
-            var newUsername = document.getElementById('newUsername').value;
-            var newPassword = document.getElementById('newPassword').value;
-            var email = document.getElementById('email').value;
-            var fullName = document.getElementById('fullName').value;
+            var newFirstName = document.getElementById('newFirstName').value;
+            var newLastName = document.getElementById('newLastName').value;
+            var newAddress = document.getElementById('newAddress').value;
+            var newPhoneNumber = document.getElementById('newPhoneNumber').value;
+            var newEmail = document.getElementById('newEmail').value;
 
             console.log('Usuario registrado:', {
-                username: newUsername,
-                password: newPassword,
-                email: email,
-                fullName: fullName
+                firstName: newFirstName,
+                lastName: newLastName,
+                address: newAddress,
+                phoneNumber: newPhoneNumber,
+                email: newEmail
             });
+
+            // Aquí puedes realizar una llamada AJAX para insertar los datos en la base de datos
+            // Por ejemplo, utilizando Fetch API o XMLHttpRequest
 
             alert('Usuario registrado con éxito');
             document.getElementById('userRegistrationForm').reset();

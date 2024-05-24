@@ -74,6 +74,7 @@
                 </section>
                 <section id="libros-y-catalogo" style="display: none;">
                     <h2>Libros y catálogo</h2>
+                    <h3>Agrega un Libro</h3>
                     <form id="bookForm" onsubmit="addBook(event)">
                         <label for="bookName">Nombre:</label>
                         <input type="text" id="bookName" name="bookName" required><br><br>
@@ -92,6 +93,10 @@
                         
                         <button type="submit">Agregar Libro</button>
                     </form>
+                    <h2>Catálogo de Libros</h2>
+                    <section id="bookCatalog">
+                        <!-- Aquí se mostrará el catálogo de libros -->
+                    </section>
                 </section>
                 <section id="prestamos-y-reservaciones" style="display: none;">
                     <h2>Préstamos y reservaciones</h2>

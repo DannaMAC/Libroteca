@@ -100,11 +100,53 @@
                 </section>
                 <section id="prestamos-y-reservaciones" style="display: none;">
                     <h2>Préstamos y reservaciones</h2>
-                    <!-- Contenido de la sección de Préstamos y reservaciones -->
+                    <h3>Crear Préstamo</h3>
+                    <form id="loanForm" onsubmit="createLoan(event)">
+                        <label for="clientId">ID del Cliente:</label>
+                        <input type="number" id="clientId" name="clientId" required><br><br>
+                        <label for="librarianId">ID del Bibliotecario:</label>
+                        <input type="number" id="librarianId" name="librarianId" required><br><br>
+                        <label for="stockId">ID del Stock:</label>
+                        <input type="number" id="stockId" name="stockId" required><br><br>
+                        <label for="loanStartDate">Fecha de Inicio del Préstamo:</label>
+                        <input type="date" id="loanStartDate" name="loanStartDate" required><br><br>
+                        <label for="loanDueDate">Fecha de Vencimiento del Préstamo:</label>
+                        <input type="date" id="loanDueDate" name="loanDueDate" required><br><br>
+                        <label for="loanReturnDate">Fecha de Devolución del Préstamo:</label>
+                        <input type="date" id="loanReturnDate" name="loanReturnDate"><br><br>
+                        <label for="status">Estado:</label>
+                        <input type="text" id="status" name="status" required><br><br>
+                        <button type="submit">Crear Préstamo</button>
+                    </form>
                 </section>
                 <section id="reportes-y-estadisticas" style="display: none;">
                     <h2>Reportes y estadísticas</h2>
-                    <!-- Contenido de la sección de Reportes y estadísticas -->
+                    <h3>Agregar Stock</h3>
+                    <form id="stockForm" onsubmit="createStock(event)">
+                        <label for="stockId">ID del Stock:</label>
+                        <input type="number" id="stockId" name="stockId" required><br><br>
+                        <label for="status">Estado:</label>
+                        <input type="text" id="status" name="status" required><br><br>
+                        <label for="bookId">ID del Libro:</label>
+                        <input type="number" id="bookId" name="bookId" required><br><br>
+                        <label for="available">Disponibilidad:</label>
+                        <input type="number" id="available" name="available" required><br><br>
+                        <button type="submit">Agregar Stock</button>
+                    </form>
+                    <h3>Agregar Multa</h3>
+                    <form id="fineForm" onsubmit="createFine(event)">
+                        <label for="fineId">ID de la Multa:</label>
+                        <input type="number" id="fineId" name="fineId" required><br><br>
+                        <label for="amountToPay">Monto a Pagar:</label>
+                        <input type="number" id="amountToPay" name="amountToPay" required><br><br>
+                        <label for="fineDate">Fecha de la Multa:</label>
+                        <input type="date" id="fineDate" name="fineDate" required><br><br>
+                        <label for="fineStatus">Estado:</label>
+                        <input type="text" id="fineStatus" name="fineStatus" required><br><br>
+                        <label for="loanId">ID del Préstamo:</label>
+                        <input type="number" id="loanId" name="loanId" required><br><br>
+                        <button type="submit">Agregar Multa</button>
+                    </form>
                 </section>
                 <section id="configuraciones-avanzadas" style="display: none;">
                     <h2>Configuraciones avanzadas</h2>
@@ -118,62 +160,6 @@
     </div>
 
     <script src="script.js"></script>
-    <script>
-        var adminUsername = "admin"; // Nombre de usuario del administrador
-        var adminPassword = "admin10"; // Contraseña del administrador
-
-        function authenticate(event) {
-            event.preventDefault(); 
-
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-
-            if (username === adminUsername && password === adminPassword) {
-                console.log("Inicio de sesión exitoso para el administrador");
-                document.getElementById('loginPage').style.display = 'none';
-                document.getElementById('mainPage').style.display = 'block';
-            } else {
-                alert('Usuario o contraseña incorrectos');
-            }
-        }
-
-        function showSection(sectionId) {
-            document.querySelectorAll('main section').forEach(section => {
-                section.style.display = 'none';
-            });
-
-            document.getElementById(sectionId).style.display = 'block';
-        }
-
-        function logout() {
-            document.getElementById('loginPage').style.display = 'flex'; 
-            document.getElementById('mainPage').style.display = 'none';
-        }
-
-        function registerUser(event) {
-            event.preventDefault();
-
-            var newFirstName = document.getElementById('newFirstName').value;
-            var newLastName = document.getElementById('newLastName').value;
-            var newAddress = document.getElementById('newAddress').value;
-            var newPhoneNumber = document.getElementById('newPhoneNumber').value;
-            var newEmail = document.getElementById('newEmail').value;
-
-            console.log('Usuario registrado:', {
-                firstName: newFirstName,
-                lastName: newLastName,
-                address: newAddress,
-                phoneNumber: newPhoneNumber,
-                email: newEmail
-            });
-
-            // Aquí puedes realizar una llamada AJAX para insertar los datos en la base de datos
-            // Por ejemplo, utilizando Fetch API o XMLHttpRequest
-
-            alert('Usuario registrado con éxito');
-            document.getElementById('userRegistrationForm').reset();
-        }
-    </script>
 </body>
 </html>
 

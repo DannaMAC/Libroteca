@@ -54,7 +54,7 @@ main {
 
 main section {
     margin-bottom: 2rem;
-    text-align: center;
+    text-align: center; 
 }
 
 main section h2 {
@@ -79,12 +79,14 @@ main section h2 {
     background-color: #333; 
     padding: 1rem;
     border-radius: 5px;
+    width: 180px; 
 }
 
 #loginForm label {
     display: block;
     margin-bottom: 0.5rem;
     color: white; 
+    text-align: center; 
 }
 
 #loginForm input {
@@ -132,22 +134,23 @@ footer p {
     background-color: #F5F5DC;
 }
 
-#bookForm {
-    display: inline-block;
+form {
     background-color: #f4f4f4;
-    padding: 3rem;
-    border-radius: 2px;
-    width: 200px;
+    padding: 1rem;
+    border-radius: 5px;
+    width: 250px; /* Ajusta el ancho de todos los formularios */
+    margin-bottom: 2rem; /* Espacio inferior entre formularios */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para mejor visualización */
 }
 
-#bookForm label {
+form label {
     display: block;
     margin-bottom: 0.5rem;
     text-align: left; 
 }
 
-#bookForm input,
-#bookForm textarea {
+form input,
+form textarea {
     padding: 0.5rem;
     width: 100%;
     margin-bottom: 0.5rem;
@@ -155,7 +158,7 @@ footer p {
     border-radius: 3px;
 }
 
-#bookForm button {
+form button {
     padding: 0.5rem 1rem;
     background-color: #333;
     color: white;
@@ -164,8 +167,8 @@ footer p {
     cursor: pointer;
 }
 
-#bookForm button:hover {
-    background-color: #333;
+form button:hover {
+    background-color: #383535; /* Color de fondo al pasar el cursor */
 }
 
 table {
@@ -189,3 +192,4 @@ th {
 tbody tr:nth-child(even) {
     background-color: #f2f2f2;
 }
+

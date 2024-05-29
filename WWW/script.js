@@ -142,6 +142,9 @@ function createFine(event) {
   alert('Fine agregado con éxito');
   document.getElementById('fineForm').reset();
 }
+function logout() {
+  window.location.href = 'Login.html'; // Redirige a Login.html
+}
 /*const oracledb = require('oracledb');
 async function runApp()
 {

@@ -7,7 +7,7 @@ http.createServer((request, response) => {
     let parsedUrl = url.parse(request.url, true);
     let pathname = parsedUrl.pathname;
 
-    const filePath = pathname === '/' ? './WWW/Login.html' : `./WWW${pathname}`;
+    const filePath = pathname === '/' ? './WWW/Libroteca.html' : `./WWW${pathname}`;
     
     if (pathname === '/registro' && request.method === 'POST') {
         let data = [];

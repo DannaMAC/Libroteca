@@ -15,6 +15,9 @@ function authenticate(event) {
         alert('Usuario o contraseña incorrectos');
     }
 }
+function redirectToMainPage() {
+  window.location.href = "Libroteca.html";
+}
 
 function showSection(sectionId) {
     document.querySelectorAll('main section').forEach(section => {

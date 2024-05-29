@@ -1,0 +1,17 @@
+{
+  "name": "libroteca-",
+  "version": "1.0.0",
+  "description": "Libroteca es una aplicación de gestión de bibliotecas diseñada para automatizar y simplificar todas las tareas relacionadas con la administración de libros, usuarios, préstamos y devoluciones en una biblioteca.",
+  "main": "checkConnection.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "oracledb": "^6.5.1"
+  }
+}

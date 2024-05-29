@@ -124,6 +124,28 @@ function createLoan(event) {
   var loanReturnDate = document.getElementById('loanReturnDate').value;
   var status = document.getElementById('status').value;
 
+  fetch('/createLoan', {
+    method: 'POST',
+    headers: {
+      'Content-Type':'application/json'
+    },
+    body: JSON.stringify({
+      clientId,
+      librarianId,
+      stockId,
+      loanStartDate,
+      loanDueDate,
+      loanReturnDate,
+      status
+    })
+  })
+  .then(response => response.text())
+  .then(data => {
+    alert(data);
+    document.getElementById('loanForm').reset();
+  })
+  .catch(error => console.error('Error:', error));
+
   console.log('Préstamo creado:', {
       clientId: clientId,
       librarianId: librarianId,
@@ -134,9 +156,9 @@ function createLoan(event) {
       status: status
   });
 
-  alert('Préstamo creado con éxito');
   document.getElementById('loanForm').reset();
 }
+
 function createStock(event) {
   event.preventDefault();
 
@@ -145,36 +167,70 @@ function createStock(event) {
   var bookId = document.getElementById('bookId').value;
   var available = document.getElementById('available').value;
 
+  fetch('/createStock', {
+    method: 'POST',
+    headers: {
+      'Content-Type':'application/json'
+    },
+    body: JSON.stringify({
+      status,
+      bookId,
+      available
+    })
+  })
+  .then(response => response.text())
+  .then(data => {
+    alert(data);
+    document.getElementById('stockForm').reset();
+  })
+  .catch(error => console.error('Error:', error));
+
   console.log('Stock agregado:', {
-      stockId: stockId,
       status: status,
       bookId: bookId,
       available: available
   });
 
-  alert('Stock agregado con éxito');
   document.getElementById('stockForm').reset();
 }
+
 function createFine(event) {
   event.preventDefault();
 
-  var fineId = document.getElementById('fineId').value;
   var amountToPay = document.getElementById('amountToPay').value;
   var fineDate = document.getElementById('fineDate').value;
   var status = document.getElementById('status').value;
   var loanId = document.getElementById('loanId').value;
 
+  fetch('/createFine', {
+    method: 'POST',
+    headers: {
+      'Content-Type':'application/json'
+    },
+    body: JSON.stringify({
+      amountToPay,
+      fineDate,
+      status,
+      loanId
+    })
+  })
+  .then(response => response.text())
+  .then(data => {
+    alert(data);
+    document.getElementById('fineForm').reset();
+  })
+  .catch(error => console.error('Error:', error));
+
   console.log('Fine agregado:', {
-      fineId: fineId,
       amountToPay: amountToPay,
       fineDate: fineDate,
       status: status,
       loanId: loanId
   });
 
-  alert('Fine agregado con éxito');
   document.getElementById('fineForm').reset();
 }
+
 function logout() {
   window.location.href = 'Login.html'; // Redirige a Login.html
 }

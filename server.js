@@ -28,7 +28,33 @@ async function insertUser(data){
 
     }catch(err){
         console.error(err);
-        res.status(500).send("Error al registrar el usuario");
+        throw new Error("Error al registrar el usuario");
+    }finally{
+        if(connection){
+            try{
+                await connection.close();
+            }catch(err){
+                console.err(err);
+            }
+        }
+    }
+}
+
+async function insertBook(data){
+    let connection;
+    try {
+        connection = await oracledb.getConnection({user:"HR", password:"hr", connectionString:"localhost/xepdb1"});
+        console.log("Conexion exitosa a la Base de Datos");
+
+        const sql = `INSERT INTO books (name, author, description, edition, editor) VALUES (:1, :2, :3, :4, :5)`;
+        const result = await connection.execute(sql, [data.bookName, data.bookAuthor, data.bookDescription, data.bookEdition, data.bookEditor], {autoCommit:true});
+        console.log(result.rowsAffected, "Filas insertadas");
+
+        return "Libro registrado exitosamente";
+
+    }catch(err){
+        console.error(err);
+        throw new Error("Error al registrar el libro");
     }finally{
         if(connection){
             try{
@@ -49,62 +75,17 @@ app.post('/registerUser', async (req, res) => {
     }
 });
 
+app.post('/addBook', async (req, res) => {
+    try {
+        const message = await insertBook(req.body);
+        res.send(message);
+    }catch(error){
+        res.status(500).send(error.message);
+    }
+});
+
 app.listen(port, () => {
     console.log(`Servidor escuchando en el puerto ${port}`);
 });
-/*
-http.createServer((request, response) => {
-    let parsedUrl = url.parse(request.url, true);
-    let pathname = parsedUrl.pathname;
 
-    const filePath = pathname === '/' ? './WWW/Libroteca.html' : `./WWW${pathname}`;
-    
-    if (pathname === '/registro' && request.method === 'POST') {
-        let data = [];
-        request.on("data", chunk => {
-            data.push(chunk);
-        }).on("end", () => {
-            let params = Buffer.concat(data).toString();
-            fs.appendFile('contact_data.txt', params + '\n', (err) => {
-                if (err) {
-                    response.writeHead(500, {"Content-Type": "text/plain"});
-                    response.write("Error Interno del Servidor");
-                    response.end();
-                    return;
-                }
-                response.writeHead(200, {"Content-Type": "text/plain"});
-                response.write("Datos recibidos y almacenados");
-                response.end();
-            });
-        });
-        return;
-    }
-
-    fs.readFile(filePath, (err, data) => {
-        if (err) {
-            response.writeHead(404, {"Content-Type": "text/plain"});
-            response.write("No encontrado");
-            response.end();
-        } else {
-            const ext = path.extname(filePath).substring(1);
-            const mimeTypes = {
-                'html': 'text/html',
-                'txt': 'text/plain',
-                'css': 'text/css',
-                'js': 'application/javascript',
-                'json': 'application/json',
-                'png': 'image/png',
-                'jpg': 'image/jpeg',
-                'jpeg': 'image/jpeg',
-                'gif': 'image/gif',
-                'svg': 'image/svg+xml',
-                'ico': 'image/x-icon'
-            };
-            response.writeHead(200, {"Content-Type": mimeTypes[ext] || 'application/octet-stream'});
-            response.write(data);
-            response.end();
-        }
-    });
-}).listen(5555);
-*/
 console.log("Servidor ejecutándose.");

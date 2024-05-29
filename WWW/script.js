@@ -41,6 +41,27 @@ function registerUser(event) {
     var newPhoneNumber = document.getElementById('newPhoneNumber').value;
     var newEmail = document.getElementById('newEmail').value;
 
+    fetch('/registerUser', {
+      method: 'POST',
+      headers: {
+        'Content-Type':'application/json'
+      },
+      body: JSON.stringify({
+        newFirstName,
+        newLastName,
+        newAddress,
+        newPhoneNumber,
+        newEmail
+      })
+    })
+    .then(response => response.text())
+    .then(data => {
+      alert(data);
+      document.getElementById('userRegistrationForm').reset();
+    })
+    .catch(error => console.error('Error:', error));
+
+
     console.log('Usuario registrado:', {
         firstName: newFirstName,
         lastName: newLastName,
@@ -48,9 +69,6 @@ function registerUser(event) {
         phoneNumber: newPhoneNumber,
         email: newEmail
     });
-
-    // Aquí puedes realizar una llamada AJAX para insertar los datos en la base de datos
-    // Por ejemplo, utilizando Fetch API o XMLHttpRequest
 
     alert('Usuario registrado con éxito');
     document.getElementById('userRegistrationForm').reset();

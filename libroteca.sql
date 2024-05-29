@@ -87,7 +87,7 @@ CREATE TABLE Fine
 	status               VARCHAR2(20)  NULL ,
 	loan_id              DEC(6)  NULL ,
 
-CONSTRAINT R_5 FOREIGN KEY (loan_id) REFERENCES Loan (loan_id)ON DELETE CASCADE
+CONSTRAINT R_5 FOREIGN KEY (loan_id) REFERENCES Loan (loan_id) ON DELETE CASCADE
 );
 
 ALTER TABLE Fine

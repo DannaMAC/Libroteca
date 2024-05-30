@@ -39,7 +39,7 @@ function showUsers() {
     fetch('/users')
         .then(response => response.json())
         .then(data => {
-            let table = '<table><tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Address</th><th>Phone Number</th><th>Email</th></tr>';
+            let table = '<table><tr><th>ID</th><th>First Name</th><th>Address</th><th>Phone Number</th><th>Email</th><th>Last Name</th></tr>';
             data.forEach(user => {
                 table += `<tr>
                             <td>${user[0]}</td>

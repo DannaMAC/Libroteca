@@ -64,9 +64,10 @@
                 <section id="administracion" style="display: none;">
                     <h2>Administración</h2>
                     <div class="button-container">
-                        <button onclick="fetchTableData('users')" class="admin-button">Mostrar Usuarios</button>
-                        <button onclick="fetchTableData('books')" class="admin-button">Mostrar Libros</button>
+                        <button onclick="showUsers()" class="admin-button">Mostrar Usuarios</button>
+                        <button onclick="showBooks()" class="admin-button">Mostrar Libros</button>
                     </div>
+                    <div id="dataDisplay"></div>
                 </section>
                 <section id="registro-usuarios" style="display: none;">
                     <h2>Registros</h2>

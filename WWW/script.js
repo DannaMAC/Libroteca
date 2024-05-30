@@ -32,6 +32,52 @@ function logout() {
     document.getElementById('mainPage').style.display = 'none';
 }
 
+document.getElementById('showUsersButton').addEventListener('click', showUsers);
+document.getElementById('showBooksButton').addEventListener('click', showBooks);
+
+function showUsers() {
+    fetch('/users')
+        .then(response => response.json())
+        .then(data => {
+            let table = '<table><tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Address</th><th>Phone Number</th><th>Email</th></tr>';
+            data.forEach(user => {
+                table += `<tr>
+                            <td>${user[0]}</td>
+                            <td>${user[1]}</td>
+                            <td>${user[2]}</td>
+                            <td>${user[3]}</td>
+                            <td>${user[4]}</td>
+                            <td>${user[5]}</td>
+                          </tr>`;
+            });
+            table += '</table>';
+            document.getElementById('dataDisplay').innerHTML = table;
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+function showBooks() {
+    fetch('/books')
+        .then(response => response.json())
+        .then(data => {
+            let table = '<table><tr><th>ID</th><th>Name</th><th>Author</th><th>Description</th><th>Edition</th><th>Editor</th></tr>';
+            data.forEach(book => {
+                table += `<tr>
+                            <td>${book[0]}</td>
+                            <td>${book[1]}</td>
+                            <td>${book[2]}</td>
+                            <td>${book[3]}</td>
+                            <td>${book[4]}</td>
+                            <td>${book[5]}</td>
+                          </tr>`;
+            });
+            table += '</table>';
+            document.getElementById('dataDisplay').innerHTML = table;
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+
 function registerUser(event) {
     event.preventDefault();
 

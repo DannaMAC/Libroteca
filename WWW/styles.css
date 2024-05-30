@@ -5,6 +5,15 @@ body {
     margin: 0;
     padding: 0;
 }
+body {
+    background-image: url('imagenes/imagen2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
 
 #loginPage h2 {
     color: black; 

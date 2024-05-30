@@ -290,20 +290,28 @@ tbody tr:nth-child(even) {
 
 #bookList {
     list-style-type: none;
-    margin: 0;
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
 }
 
 #bookList li {
-    margin-right: 20px; 
+    flex-basis: calc(33.333% - 20px); 
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+#bookList li:nth-child(3n + 1) {
+    flex-basis: 100%; 
 }
 
 #bookList img {
+    width: 100%;
+    height: auto;
     display: block;
-    margin: 0 auto 10px; 
 }
 
 #bookList p {
-    text-align: center; 
+    text-align: center;
 }
+

@@ -243,8 +243,6 @@ app.post('/createLoan', async (req, res) => {
     }
 });
 
-var status = document.getElementById('statusStock').value;
-
 app.post('/createStock', async (req, res) => {
     try {
         const state = req.body.status === '1' ? true : false;

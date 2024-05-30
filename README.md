@@ -9,8 +9,8 @@ Tipo de Aplicación:
 Web: Estará disponible como una aplicación web para acceder desde cualquier navegador.
 
 # Autores
-Hector Daniel Medrano Meza
+Danna Maribel Corral Salcedo / 358147
 
-Emiliano Rivera Armendariz
+Emiliano Rivera Armendariz / 358193
 
-Danna Maribel Corral Salcedo 
+Héctor Daniel Medrano Meza / 361345

@@ -205,10 +205,11 @@ function createLoan(event) {
 function createStock(event) {
   event.preventDefault();
 
-  var stockId = document.getElementById('stockId').value;
-  var status = document.getElementById('status').value;
+  var status = document.getElementById('statusStock').value;
   var bookId = document.getElementById('bookId').value;
-  var available = document.getElementById('available').value;
+  var available = 1; // 1 = True. Esta disponible. 0 = False. No esta disponible.
+
+  console.log(status)
 
   fetch('/createStock', {
     method: 'POST',
@@ -227,12 +228,6 @@ function createStock(event) {
     document.getElementById('stockForm').reset();
   })
   .catch(error => console.error('Error:', error));
-
-  console.log('Stock agregado:', {
-      status: status,
-      bookId: bookId,
-      available: available
-  });
 
   document.getElementById('stockForm').reset();
 }

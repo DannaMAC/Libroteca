@@ -73,6 +73,49 @@ function registerUser(event) {
     document.getElementById('userRegistrationForm').reset();
 }
 
+function registerLibrarian(event) {
+  event.preventDefault();
+
+  var librarianFirstName = document.getElementById('librarianFirstName').value;
+  var librarianLastName = document.getElementById('librarianLastName').value;
+  var librarianEmail = document.getElementById('librarianEmail').value;
+  var librarianAddress = document.getElementById('librarianAddress').value;
+  var librarianPhoneNumber = document.getElementById('librarianPhoneNumber').value;
+  var librarianRole = document.getElementById('librarianPhoneNumber').value;
+
+  fetch('/registerLibrarian', {
+    method: 'POST',
+    headers: {
+      'Content-Type':'application/json'
+    },
+    body: JSON.stringify({
+      librarianFirstName,
+      librarianLastName,
+      librarianEmail,
+      librarianAddress,
+      librarianPhoneNumber,
+      librarianRole
+    })
+  })
+  .then(response => response.text())
+  .then(data => {
+    alert(data);
+    document.getElementById('librarianRegistrationForm').reset();
+  })
+  .catch(error => console.error('Error:', error));
+
+  console.log('Bibliotecario registrado:', {
+      librarianFirstName: librarianFirstName,
+      librarianLastName: librarianLastName,
+      librarianEmail: librarianEmail,
+      librarianAddress: librarianAddress,
+      librarianPhoneNumber: librarianPhoneNumber,
+      librarianRole: librarianRole
+  });
+
+  document.getElementById('librarianRegistrationForm').reset();
+}
+
 function addBook(event) {
     event.preventDefault();
 

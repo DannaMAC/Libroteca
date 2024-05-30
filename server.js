@@ -37,6 +37,32 @@ async function insertUser(data){
     }
 }
 
+async function insertLibrarian(data){
+    let connection;
+    try {
+        connection = await oracledb.getConnection({user:"HR", password:"hr", connectionString:"localhost/xepdb1"});
+        console.log("Conexion exitosa a la Base de Datos");
+
+        const sql = `INSERT INTO librarian (first_name, last_name, email, address, phone_number, role) VALUES (:1, :2, :3, :4, :5, :6)`;
+        const result = await connection.execute(sql, [data.librarianFirstName, data.librarianLastName, data.librarianEmail, data.librarianAddress, data.librarianPhoneNumber, data.librarianRole], {autoCommit:true});
+        console.log(result.rowsAffected, "Filas insertadas");
+
+        return "Bibliotecario registrado exitosamente";
+
+    }catch(err){
+        console.error(err);
+        throw new Error("Error al registrar el bibliotecario");
+    }finally{
+        if(connection){
+            try{
+                await connection.close();
+            }catch(err){
+                console.err(err);
+            }
+        }
+    }
+}
+
 async function insertBook(data){
     let connection;
     try {
@@ -144,6 +170,15 @@ async function insertFine(data){
 app.post('/registerUser', async (req, res) => {
     try {
         const message = await insertUser(req.body);
+        res.send(message);
+    }catch(error){
+        res.status(500).send(error.message);
+    }
+});
+
+app.post('/registerLibrarian', async (req, res) => {
+    try {
+        const message = await insertLibrarian(req.body);
         res.send(message);
     }catch(error){
         res.status(500).send(error.message);

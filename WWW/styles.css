@@ -288,3 +288,22 @@ tbody tr:nth-child(even) {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+#bookList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+#bookList li {
+    margin-right: 20px; 
+}
+
+#bookList img {
+    display: block;
+    margin: 0 auto 10px; 
+}
+
+#bookList p {
+    text-align: center; 
+}

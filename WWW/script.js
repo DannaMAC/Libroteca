@@ -273,13 +273,21 @@ function logout() {
   window.location.href = 'Login.html'; // Redirige a Login.html
 }
 
-$(document).ready(function(){
-  $('.gallery').slick({
-      dots: true,
-      infinite: true,
-      speed: 300,
-      slidesToShow: 1,
-      adaptiveHeight: true
-  });
-});
+function addBook() {
+  var bookName = document.getElementById('bookName').value;
+  var bookAuthor = document.getElementById('bookAuthor').value;
+  var bookDescription = document.getElementById('bookDescription').value;
+  var bookEdition = document.getElementById('bookEdition').value;
+  var bookEditor = document.getElementById('bookEditor').value;
+
+  var bookCatalog = document.getElementById('bookCatalog');
+  var li = document.createElement('li');
+  li.innerHTML = '<strong>' + bookName + '</strong> - ' + bookAuthor + '<br>' +
+                 '<em>' + bookEdition + '</em> ' + bookEditor + '<br>' +
+                 bookDescription;
+  bookCatalog.appendChild(li);
+
+  document.getElementById('bookForm').reset();
+}
+
 

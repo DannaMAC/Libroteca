@@ -282,3 +282,9 @@ tbody tr:nth-child(even) {
     object-fit: cover;
     border: none;
 }
+#bookList li:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+

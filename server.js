@@ -11,6 +11,46 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'WWW')));
 
+app.get('/users', async(req, res) => {
+    let connection;
+    try {
+        connection = await oracledb.getConnection({user: "HR", password: "hr", connectionString: "localhost/xepdb1"});
+        const result = await connection.execute('SELECT * FROM client');
+        res.json(result.rows);
+    }catch(err){
+        console.error(err);
+        res.status(500).send("Error al obtener clientes");
+    }finally{
+        if(connection){
+            try{
+                await connection.close();
+            }catch(err){
+                console.error(err);
+            }
+        }
+    }
+});
+
+app.get('/books', async(req, res) => {
+    let connection;
+    try {
+        connection = await oracledb.getConnection({user: "HR", password: "hr", connectionString: "localhost/xepdb1"});
+        const result = await connection.execute('SELECT * FROM book');
+        res.json(result.rows);
+    }catch(err){
+        console.error(err);
+        res.status(500).send("Error al obtener libros");
+    }finally{
+        if(connection){
+            try{
+                await connection.close();
+            }catch(err){
+                console.error(err);
+            }
+        }
+    }
+});
+
 async function insertUser(data){
     let connection;
     try {
@@ -203,9 +243,12 @@ app.post('/createLoan', async (req, res) => {
     }
 });
 
+var status = document.getElementById('statusStock').value;
+
 app.post('/createStock', async (req, res) => {
     try {
-        const message = await insertStock(req.body);
+        const state = req.body.status === '1' ? true : false;
+        const message = await insertStock({...req.body, status:state});
         res.send(message);
     }catch(error){
         res.status(500).send(error.message);

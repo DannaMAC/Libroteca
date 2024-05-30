@@ -118,7 +118,7 @@ footer {
     text-align: center;
 }
 
-footer p {
+footer a {
     color: white; 
     margin: 0;
 }
@@ -214,4 +214,47 @@ tbody tr:nth-child(even) {
     white-space: nowrap; 
 }
 
+.content {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
 
+.content h1 {
+    color: #444;
+}
+
+.content p {
+    margin: 1rem 0;
+}
+
+.button,
+.footer-button,
+.admin-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #888;
+    color: white;
+    text-decoration: none;
+    border: 1px solid #444;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin: 0.5rem;
+}
+
+.button:hover,
+.footer-button:hover,
+.admin-button:hover {
+    background-color: #666;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}

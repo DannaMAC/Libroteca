@@ -63,9 +63,10 @@
             <main>
                 <section id="administracion" style="display: none;">
                     <h2>Administración</h2>
-                    <button onclick="fetchTableData('users')">Mostrar Usuarios</button>
-                    <button onclick="fetchTableData('books')">Mostrar Libros</button>
-                    <div id="tableContainer"></div>
+                    <div class="button-container">
+                        <button onclick="fetchTableData('users')" class="admin-button">Mostrar Usuarios</button>
+                        <button onclick="fetchTableData('books')" class="admin-button">Mostrar Libros</button>
+                    </div>
                 </section>
                 <section id="registro-usuarios" style="display: none;">
                     <h2>Registros</h2>
@@ -188,7 +189,7 @@
             </main>
         </div>
         <footer>
-            <p>Hector, Emiliano, Danna</p>
+            <a href="/about.html">Acerca de Nosotros</a> 
         </footer>
     </div>
     <script src="script.js"></script>

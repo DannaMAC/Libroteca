@@ -53,7 +53,7 @@
             <nav>
                 <ul>
                     <li><a href="#" onclick="showSection('administracion')">Administración</a></li>
-                    <li><a href="#" onclick="showSection('registro-usuarios')">Registro de usuarios</a></li>
+                    <li><a href="#" onclick="showSection('registro-usuarios')">Registros</a></li>
                     <li><a href="#" onclick="showSection('libros-y-catalogo')">Libros y catálogo</a></li>
                     <li><a href="#" onclick="showSection('prestamos-y-reservaciones')">Préstamos y reservaciones</a></li>
                     <li><a href="#" onclick="showSection('reportes-y-estadisticas')">Reportes y estadísticas</a></li>
@@ -68,21 +68,40 @@
                     <div id="tableContainer"></div>
                 </section>
                 <section id="registro-usuarios" style="display: none;">
-                    <h2>Registro de usuarios</h2>
-                    <form id="userRegistrationForm" onsubmit="registerUser(event)">
-                        <label for="newFirstName"><b>Nombre:</b></label>
-                        <input type="text" id="newFirstName" name="newFirstName" required><br><br>
-                        <label for="newLastName"><b>Apellido:</b></label>
-                        <input type="text" id="newLastName" name="newLastName" required><br><br>
-                        <label for="newAddress"><b>Dirección:</b></label>
-                        <input type="text" id="newAddress" name="newAddress"><br><br>
-                        <label for="newPhoneNumber"><b>Teléfono:</b></label>
-                        <input type="text" id="newPhoneNumber" name="newPhoneNumber"><br><br>
-                        <label for="newEmail"><b>Correo electrónico:</b></label>
-                        <input type="email" id="newEmail" name="newEmail" required><br><br>
-                        <button type="submit">Guardar</button>
-                    </form>
-                </section>
+                    <h2>Registros</h2>
+                    <div class="form-container">
+                        <form id="userRegistrationForm" onsubmit="registerUser(event)">
+                            <h3 class="form-title">Registro de Usuarios</h3>
+                            <label for="newFirstName"><b>Nombre:</b></label>
+                            <input type="text" id="newFirstName" name="newFirstName" required><br><br>
+                            <label for="newLastName"><b>Apellido:</b></label>
+                            <input type="text" id="newLastName" name="newLastName" required><br><br>
+                            <label for="newAddress"><b>Dirección:</b></label>
+                            <input type="text" id="newAddress" name="newAddress"><br><br>
+                            <label for="newPhoneNumber"><b>Teléfono:</b></label>
+                            <input type="text" id="newPhoneNumber" name="newPhoneNumber"><br><br>
+                            <label for="newEmail"><b>Correo electrónico:</b></label>
+                            <input type="email" id="newEmail" name="newEmail" required><br><br>
+                            <button type="submit">Guardar</button>
+                        </form>
+                        <form id="librarianRegistrationForm" onsubmit="registerLibrarian(event)">
+                            <h3 class="form-title">Registro de Bibliotecarios</h3>
+                            <label for="librarianFirstName"><b>Nombre:</b></label>
+                            <input type="text" id="librarianFirstName" name="librarianFirstName" required><br><br>
+                            <label for="librarianLastName"><b>Apellido:</b></label>
+                            <input type="text" id="librarianLastName" name="librarianLastName" required><br><br>
+                            <label for="librarianEmail"><b>Correo electrónico:</b></label>
+                            <input type="email" id="librarianEmail" name="librarianEmail" required><br><br>
+                            <label for="librarianAddress"><b>Dirección:</b></label>
+                            <input type="text" id="librarianAddress" name="librarianAddress"><br><br>
+                            <label for="librarianPhoneNumber"><b>Teléfono:</b></label>
+                            <input type="text" id="librarianPhoneNumber" name="librarianPhoneNumber"><br><br>
+                            <label for="librarianRole"><b>Rol:</b></label>
+                            <input type="text" id="librarianRole" name="librarianRole"><br><br>
+                            <button type="submit">Guardar</button>
+                        </form>
+                    </div>
+                </section>                
                 <section id="libros-y-catalogo" style="display: none;">
                     <h2>Libros y catálogo</h2>
                     <h3>Agrega un Libro</h3>
@@ -134,8 +153,6 @@
                     <h2>Reportes y estadísticas</h2>
                     <h3>Agregar Stock</h3>
                     <form id="stockForm" onsubmit="createStock(event)">
-                        <label for="stockId">ID del Stock:</label>
-                        <input type="number" id="stockId" name="stockId" required><br><br>
                         <label for="status">Estado:</label>
                         <input type="text" id="status" name="status" required><br><br>
                         <label for="bookId">ID del Libro:</label>
@@ -146,8 +163,6 @@
                     </form>
                     <h3>Agregar Multa</h3>
                     <form id="fineForm" onsubmit="createFine(event)">
-                        <label for="fineId">ID de la Multa:</label>
-                        <input type="number" id="fineId" name="fineId" required><br><br>
                         <label for="amountToPay">Monto a Pagar:</label>
                         <input type="number" id="amountToPay" name="amountToPay" required><br><br>
                         <label for="fineDate">Fecha de la Multa:</label>
@@ -179,4 +194,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-

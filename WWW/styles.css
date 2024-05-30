@@ -23,6 +23,8 @@ header h1 {
 
 #mainPage {
     display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 nav {
@@ -138,9 +140,9 @@ form {
     background-color: #f4f4f4;
     padding: 1rem;
     border-radius: 5px;
-    width: 250px; /* Ajusta el ancho de todos los formularios */
-    margin-bottom: 2rem; /* Espacio inferior entre formularios */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para mejor visualización */
+    width: 250px; 
+    margin-bottom: 2rem; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
 
 form label {
@@ -168,7 +170,7 @@ form button {
 }
 
 form button:hover {
-    background-color: #383535; /* Color de fondo al pasar el cursor */
+    background-color: #383535; 
 }
 
 table {
@@ -192,4 +194,24 @@ th {
 tbody tr:nth-child(even) {
     background-color: #f2f2f2;
 }
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 100px; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+}
+
+.form-container form {
+    width: 45%;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    white-space: nowrap; 
+}
+
 

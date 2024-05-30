@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library System</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
     <style>
         body {
             margin: 0;
@@ -54,18 +52,16 @@
         <div style="display: flex; flex: 1;">
             <nav>
                 <ul>
-                    <li><a href="#" onclick="showSection('administracion')">Administración</a></li>
-                    <li><a href="#" onclick="showSection('registro-usuarios')">Registros</a></li>
-                    <li><a href="#" onclick="showSection('libros-y-catalogo')">Libros y catálogo</a></li>
-                    <li><a href="#" onclick="showSection('prestamos-y-reservaciones')">Préstamos y reservaciones</a></li>
-                    <li><a href="#" onclick="showSection('reportes-y-estadisticas')">Reportes y estadísticas</a></li>
-                    <li><a href="#" onclick="showSection('otros')">Otros</a></li>
+                    <li><a href="#" onclick="showSection('administracion'); hideImage();">Administración</a></li>
+                    <li><a href="#" onclick="showSection('registro-usuarios'); hideImage();">Registros</a></li>
+                    <li><a href="#" onclick="showSection('libros-y-catalogo'); hideImage();">Libros y catálogo</a></li>
+                    <li><a href="#" onclick="showSection('prestamos-y-reservaciones'); hideImage();">Préstamos y reservaciones</a></li>
+                    <li><a href="#" onclick="showSection('reportes-y-estadisticas'); hideImage();">Reportes y estadísticas</a></li>
+                    <li><a href="#" onclick="showSection('otros'); hideImage();">Otros</a></li>
                 </ul>
             </nav>
             <main>
-                <div class="image-container" id="imageContainer">
-                    <img src="imagenes/imagen.jpg" alt="Presentación">
-                </div>
+                <img src="imagenes/imagen.jpg" alt="Presentación" id="imageContainer">
                 <section id="administracion" style="display: none;">
                     <h2>Administración</h2>
                     <div class="button-container">

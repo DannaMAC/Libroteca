@@ -287,3 +287,11 @@ $(document).ready(function(){
       adaptiveHeight: true
   });
 });
+
+function showImage() {
+      document.getElementById("imageContainer").style.display = "block";
+    }
+n
+function hideImage() {
+      document.getElementById("imageContainer").style.display = "none";
+    }

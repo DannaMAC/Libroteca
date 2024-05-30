@@ -283,20 +283,3 @@ $(document).ready(function(){
   });
 });
 
-function showImage() {
-      document.getElementById("imageContainer").style.display = "block";
-    }
-n
-function hideImage() {
-      document.getElementById("imageContainer").style.display = "none";
-    }
-    document.addEventListener('DOMContentLoaded', (event) => {
-      const bookList = document.getElementById('bookList');
-      bookList.addEventListener('click', (e) => {
-          if(e.target && e.target.nodeName == "LI") {
-              let bookTitle = e.target.querySelector('p').textContent;
-              alert('Has seleccionado: ' + bookTitle);
-          }
-      });
-  });
-  

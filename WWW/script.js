@@ -280,14 +280,16 @@ function addBook() {
   var bookEdition = document.getElementById('bookEdition').value;
   var bookEditor = document.getElementById('bookEditor').value;
 
-  var bookCatalog = document.getElementById('bookCatalog');
+  var bookCatalog = document.getElementById('bookList');
   var li = document.createElement('li');
   li.innerHTML = '<strong>' + bookName + '</strong> - ' + bookAuthor + '<br>' +
                  '<em>' + bookEdition + '</em> ' + bookEditor + '<br>' +
                  bookDescription;
   bookCatalog.appendChild(li);
-
   document.getElementById('bookForm').reset();
 }
 
 
+function showImage() {
+      document.getElementById("bookCatalog").style.display = "block";
+    }

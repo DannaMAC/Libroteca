@@ -234,3 +234,13 @@ function createFine(event) {
 function logout() {
   window.location.href = 'Login.html'; // Redirige a Login.html
 }
+
+$(document).ready(function(){
+  $('.gallery').slick({
+      dots: true,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 1,
+      adaptiveHeight: true
+  });
+});
